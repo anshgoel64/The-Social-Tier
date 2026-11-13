@@ -8,17 +8,17 @@ interface PortfolioVideoItem {
 }
 
 const PORTFOLIO_VIDEOS: PortfolioVideoItem[] = [
-  { src: '/video-1.mp4', poster: '/posters/video-1.jpg', width: 640, height: 352 },
-  { src: '/video-2.mp4', poster: '/posters/video-2.jpg', width: 576, height: 1024 },
-  { src: '/video-3.mp4', poster: '/posters/video-3.jpg', width: 624, height: 352 },
-  { src: '/video-4.mp4', poster: '/posters/video-4.jpg', width: 480, height: 688 },
-  { src: '/video-5.mp4', poster: '/posters/video-5.jpg', width: 640, height: 352 },
-  { src: '/video-6.mp4', poster: '/posters/video-6.jpg', width: 384, height: 528 },
-  { src: '/video-7.mp4', poster: '/posters/video-7.jpg', width: 576, height: 1024 },
-  { src: '/video-8.mp4', poster: '/posters/video-8.jpg', width: 624, height: 352 },
-  { src: '/video-9.mp4', poster: '/posters/video-9.jpg', width: 1024, height: 576 },
-  { src: '/video-10.mp4', poster: '/posters/video-10.jpg', width: 576, height: 1024 },
-  { src: '/video-11.mp4', poster: '/posters/video-11.jpg', width: 640, height: 352 },
+  { src: './video-1.mp4', poster: './posters/video-1.jpg', width: 640, height: 352 },
+  { src: './video-2.mp4', poster: './posters/video-2.jpg', width: 576, height: 1024 },
+  { src: './video-3.mp4', poster: './posters/video-3.jpg', width: 624, height: 352 },
+  { src: './video-4.mp4', poster: './posters/video-4.jpg', width: 480, height: 688 },
+  { src: './video-5.mp4', poster: './posters/video-5.jpg', width: 640, height: 352 },
+  { src: './video-6.mp4', poster: './posters/video-6.jpg', width: 384, height: 528 },
+  { src: './video-7.mp4', poster: './posters/video-7.jpg', width: 576, height: 1024 },
+  { src: './video-8.mp4', poster: './posters/video-8.jpg', width: 624, height: 352 },
+  { src: './video-9.mp4', poster: './posters/video-9.jpg', width: 1024, height: 576 },
+  { src: './video-10.mp4', poster: './posters/video-10.jpg', width: 576, height: 1024 },
+  { src: './video-11.mp4', poster: './posters/video-11.jpg', width: 640, height: 352 },
 ];
 
 export const VideoPortfolioPage: React.FC = () => {

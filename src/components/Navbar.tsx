@@ -41,7 +41,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         >
           <span className="nav-logo-slot">
             <img
-              src="/main-brand-logo.png"
+              src="./main-brand-logo.png"
               alt="Agency Logo"
               className="nav-logo"
               onError={(e) => {

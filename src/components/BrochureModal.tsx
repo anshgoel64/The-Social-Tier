@@ -86,13 +86,16 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({ isOpen, onClose, o
                 <p style="font-size: 12px; color: #888;">Complete 19-Page Agency Profile & Video Production Portfolio</p>
               </div>
               ${BROCHURE_PAGES.map(
-                (p) => `
+                (p) => {
+                  const resolvedImg = new URL(p.image, window.location.href).href;
+                  return `
                 <div class="page-item">
-                  <img src="${p.image}" class="page-img" alt="${p.title}" />
+                  <img src="${resolvedImg}" class="page-img" alt="${p.title}" />
                   <div class="page-meta">Page ${p.id} of 19 · ${p.title}</div>
                   <p style="color: #AAA; font-size: 13px;">${p.subtitle}</p>
                 </div>
-              `
+              `;
+                }
               ).join('')}
               <script>
                 window.onload = function() {

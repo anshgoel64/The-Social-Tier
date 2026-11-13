@@ -272,7 +272,7 @@ export const VIDEO_PORTFOLIO: VideoProject[] = [
     ],
     description: 'Engineered specifically for Instagram Reels and Meta vertical feed campaigns. The opening 2-second hook directly addresses bike owners, demonstrating certified mechanics arriving at the customer doorstep with professional toolkits.',
     tags: ['Vertical Ad', 'Meta Reels', 'Direct Response', 'Auto Service'],
-    posterImage: '/assets/aistudio/img52_d17e64f9.jpg'
+    posterImage: './assets/aistudio/img52_d17e64f9.jpg'
   },
   {
     id: 'vid-vertical-2',
@@ -424,7 +424,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'Company Profile Cover',
     category: 'Overview',
     subtitle: 'The Social Tier™ — Strategic Digital Marketing Agency',
-    image: '/assets/aistudio/img20_ba3a385b.jpg',
+    image: './assets/aistudio/img20_ba3a385b.jpg',
     highlights: ['Official Company Profile', 'The Social Tier Brand Mark', 'Dark Textured Luxury Theme']
   },
   {
@@ -432,7 +432,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'Brand Identity & Stationery',
     category: 'Branding',
     subtitle: 'Founder Ansh Goel & Brand Kit Showcase',
-    image: '/assets/aistudio/img4_a5eec585.jpg',
+    image: './assets/aistudio/img4_a5eec585.jpg',
     highlights: ['Founder Ansh Goel Contact System', 'Executive Stationery & Merch', 'Color Palette: Amber Orange & Obsidian']
   },
   {
@@ -440,7 +440,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'Agency Philosophy & Mantra',
     category: 'Overview',
     subtitle: 'Discover. Deploy. Design. Grow.',
-    image: '/assets/aistudio/img32_7875f56d.jpg',
+    image: './assets/aistudio/img32_7875f56d.jpg',
     highlights: ['Holistic Growth Framework', 'Data & Creative Convergence', 'End-to-End Client Execution']
   },
   {
@@ -448,7 +448,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'Social Media Marketing',
     category: 'Marketing',
     subtitle: 'Consistent presence. Real engagement.',
-    image: '/assets/aistudio/img24_0a6d1ee7.jpg',
+    image: './assets/aistudio/img24_0a6d1ee7.jpg',
     highlights: ['Content Planning', 'Community Management', 'Profile Optimization']
   },
   {
@@ -456,7 +456,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'Social Media Case Study',
     category: 'Marketing',
     subtitle: 'Doorstep Bike Repair (YVO Service) Full Social Growth',
-    image: '/assets/aistudio/img52_d17e64f9.jpg',
+    image: './assets/aistudio/img52_d17e64f9.jpg',
     highlights: ['10k+ Carousel Views', 'Doorstep Service Funnel', 'High Conversion Offer Creatives']
   },
   {
@@ -464,7 +464,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'Performance Marketing',
     category: 'Marketing',
     subtitle: 'Data-driven ads that scale revenue.',
-    image: '/assets/aistudio/img8_69bd77b2.jpg',
+    image: './assets/aistudio/img8_69bd77b2.jpg',
     highlights: ['Meta, Google & YouTube Ads', 'Lower Acquisition Costs', 'Attribution & Optimization']
   },
   {
@@ -472,7 +472,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'Website & Funnel Design',
     category: 'Web & Design',
     subtitle: 'Modern websites engineered to convert traffic.',
-    image: '/assets/aistudio/img44_1f312697.jpg',
+    image: './assets/aistudio/img44_1f312697.jpg',
     highlights: ['NeuralEdge AI Website Design', 'High-Converting Landing Pages', 'Speed & UX Optimization']
   },
   {
@@ -480,7 +480,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'Website Design Case Study',
     category: 'Web & Design',
     subtitle: 'Agarwal Realtors Luxury Real Estate Portal',
-    image: '/assets/aistudio/img60_7970513e.jpg',
+    image: './assets/aistudio/img60_7970513e.jpg',
     highlights: ['Redefining Luxury Living', 'Bespoke Advisory UI', 'Interactive Property Showcases']
   },
   {
@@ -488,7 +488,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'Branding Discipline',
     category: 'Branding',
     subtitle: 'Crafting identities that stick in customer minds.',
-    image: '/assets/aistudio/img28_51eb8bd0.jpg',
+    image: './assets/aistudio/img28_51eb8bd0.jpg',
     highlights: ['Creative Direction', 'Storytelling Systems', 'Visual Identity Architecture']
   },
   {
@@ -496,7 +496,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'Luxury Perfume Branding',
     category: 'Branding',
     subtitle: 'The Indian Attrawala — Packaging & Social Grid',
-    image: '/assets/aistudio/img36_8ad4c536.jpg',
+    image: './assets/aistudio/img36_8ad4c536.jpg',
     highlights: ['Kewra Attar Luxury Bottle Design', 'Botanical Line Art Packaging', 'Aesthetic Instagram Grid']
   },
   {
@@ -504,7 +504,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'Corporate Branding Case Study',
     category: 'Branding',
     subtitle: 'WorkBuddyHR — Enterprise Identity & Mobile Assets',
-    image: '/assets/aistudio/img76_41f8752c.jpg',
+    image: './assets/aistudio/img76_41f8752c.jpg',
     highlights: ['Corporate Color Hierarchy (#0c004b / #ff7c08)', 'Stationery & ID Badges', 'Tablet & App UI Layouts']
   },
   {
@@ -512,7 +512,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'Product Design & Packaging',
     category: 'Branding',
     subtitle: 'Velor Rosemary Water Hair Spray',
-    image: '/assets/aistudio/img40_1f120713.jpg',
+    image: './assets/aistudio/img40_1f120713.jpg',
     highlights: ['Natural Origin Bottle Mockup', 'Clean Minimalist Label Typo', 'Packaging Regulatory Specs']
   },
   {
@@ -520,7 +520,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'Amazon A+ Content',
     category: 'Content',
     subtitle: 'Energy You Can Wear — Natural Gemstones Showcase',
-    image: '/assets/aistudio/img56_76dfa853.jpg',
+    image: './assets/aistudio/img56_76dfa853.jpg',
     highlights: ['High-Conversion Lifestyle Photos', 'Gemstone Attribute Callouts', 'Luxury E-Commerce Modules']
   },
   {
@@ -528,7 +528,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'Brochure Design',
     category: 'Web & Design',
     subtitle: 'Agarwal Group of Companies & ICIMN 2026',
-    image: '/assets/aistudio/img64_7d8ede23.jpg',
+    image: './assets/aistudio/img64_7d8ede23.jpg',
     highlights: ['Healthcare & Logistics Catalog', 'Corporate Tri-fold Architecture', 'Stall Package Presentation']
   },
   {
@@ -536,7 +536,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'High-CTR Thumbnail Division',
     category: 'Content',
     subtitle: 'Thumbnail Design — The 0.5s Click Trigger',
-    image: '/assets/aistudio/img68_77c5b84c.jpg',
+    image: './assets/aistudio/img68_77c5b84c.jpg',
     highlights: ['High Contrast Color Schemes', 'Curiosity Gap Composition', 'Psychological Trigger Layouts']
   },
   {
@@ -544,7 +544,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'YouTube Thumbnails Portfolio',
     category: 'Content',
     subtitle: 'Millions of Views Generated with Viral Visuals',
-    image: '/assets/aistudio/img72_17cf8627.jpg',
+    image: './assets/aistudio/img72_17cf8627.jpg',
     highlights: ['Elon Musk Geopolitical Series', 'Trade War (Modi vs Trump)', 'Billion Dollar Space War']
   },
   {
@@ -552,7 +552,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'Search Engine Optimization',
     category: 'Marketing',
     subtitle: 'Visibility that compounds over time.',
-    image: '/assets/aistudio/img12_dcdf75f2.jpg',
+    image: './assets/aistudio/img12_dcdf75f2.jpg',
     highlights: ['Keyword Research', 'On-Page SEO', 'Technical SEO & Link Building']
   },
   {
@@ -560,7 +560,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'AI Marketing & Automation',
     category: 'Overview',
     subtitle: 'AI-Integrated Smart Marketing & Workflows',
-    image: '/assets/aistudio/img48_ca799f5b.jpg',
+    image: './assets/aistudio/img48_ca799f5b.jpg',
     highlights: ['AI Chatbots & Workflows', 'Smart Content Automation', 'Automated Lead Nurturing']
   },
   {
@@ -568,7 +568,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     title: 'Next Step & Contact',
     category: 'Contact',
     subtitle: 'Your next customer is just one strategy away.',
-    image: '/assets/aistudio/img16_d25beec3.jpg',
+    image: './assets/aistudio/img16_d25beec3.jpg',
     highlights: ['Call: +91-8287245528', 'Email: hello.thesocialtier@gmail.com', 'Ghaziabad, NCR Hub']
   }
 ];
