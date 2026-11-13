@@ -9,14 +9,12 @@ import { HomeOverview } from './components/HomeOverview';
 import { ServicesPage } from './components/ServicesPage';
 import { VideoPortfolioPage } from './components/VideoPortfolioPage';
 import { ContactPage } from './components/ContactPage';
-import { BrochureModal } from './components/BrochureModal';
 import { Footer } from './components/Footer';
 import { MessageCircle } from 'lucide-react';
 import { AGENCY_INFO } from './data/agencyData';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<NavPage>('home');
-  const [isBrochureOpen, setIsBrochureOpen] = useState(false);
   const [selectedServiceForQuote, setSelectedServiceForQuote] = useState<string | undefined>(undefined);
 
   useEffect(() => {
@@ -54,7 +52,6 @@ export default function App() {
       <Navbar
         currentPage={currentPage}
         onNavigate={handleNavigate}
-        onOpenBrochure={() => setIsBrochureOpen(true)}
       />
 
       <main className="flex-1">
@@ -62,7 +59,6 @@ export default function App() {
           <HomeOverview
             onNavigateToServices={() => handleNavigate('services')}
             onNavigateToVideos={() => handleNavigate('videos')}
-            onOpenBrochure={() => setIsBrochureOpen(true)}
             onOpenContact={handleSelectServiceForQuote}
           />
         )}
@@ -71,7 +67,6 @@ export default function App() {
           <ServicesPage
             onNavigateToVideos={() => handleNavigate('videos')}
             onSelectServiceForQuote={handleSelectServiceForQuote}
-            onOpenBrochure={() => setIsBrochureOpen(true)}
           />
         )}
 
@@ -80,14 +75,12 @@ export default function App() {
         {currentPage === 'contact' && (
           <ContactPage
             initialService={selectedServiceForQuote}
-            onOpenBrochure={() => setIsBrochureOpen(true)}
           />
         )}
       </main>
 
       <Footer
         onNavigate={handleNavigate}
-        onOpenBrochure={() => setIsBrochureOpen(true)}
       />
 
       {/* Floating WhatsApp Direct Chat */}
@@ -101,15 +94,6 @@ export default function App() {
         <MessageCircle className="w-4 h-4" />
         <span className="hidden sm:inline">WhatsApp</span>
       </a>
-
-      <BrochureModal
-        isOpen={isBrochureOpen}
-        onClose={() => setIsBrochureOpen(false)}
-        onBookCall={() => {
-          setIsBrochureOpen(false);
-          handleSelectServiceForQuote('Brochure Follow-up Consultation');
-        }}
-      />
     </div>
   );
 }

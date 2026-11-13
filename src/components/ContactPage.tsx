@@ -12,15 +12,14 @@ import {
 } from 'lucide-react';
 import { AGENCY_INFO, FAQS } from '../data/agencyData';
 import { validateLeadForm, LeadFormData } from '../utils/agencyLogic';
+import { InstagramIcon, FacebookIcon } from './SocialIcons';
 
 interface ContactPageProps {
   initialService?: string;
-  onOpenBrochure: () => void;
 }
 
 export const ContactPage: React.FC<ContactPageProps> = ({
   initialService,
-  onOpenBrochure,
 }) => {
   const [formData, setFormData] = useState<LeadFormData>({
     fullName: '',
@@ -394,16 +393,38 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-slate-200 flex items-center justify-between">
-                  <span className="text-xs text-slate-500">Company Profile PDF</span>
-                  <button
-                    type="button"
-                    onClick={onOpenBrochure}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF7A00] hover:underline cursor-pointer"
+                <div className="pt-3 border-t border-slate-200 flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-2.5">
+                    <a
+                      href={AGENCY_INFO.instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="The Social Tier on Instagram"
+                      className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-slate-100 hover:bg-[#FF7A00] text-slate-700 hover:text-white border border-slate-200 transition-colors"
+                      title="Instagram"
+                    >
+                      <InstagramIcon className="w-4 h-4" />
+                    </a>
+                    <a
+                      href={AGENCY_INFO.facebookUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="The Social Tier on Facebook"
+                      className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-slate-100 hover:bg-[#FF7A00] text-slate-700 hover:text-white border border-slate-200 transition-colors"
+                      title="Facebook"
+                    >
+                      <FacebookIcon className="w-4 h-4" />
+                    </a>
+                  </div>
+
+                  <a
+                    href={AGENCY_INFO.brochurePdfUrl}
+                    download={AGENCY_INFO.brochureFileName}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF7A00] hover:underline cursor-pointer no-underline"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>Download Brochure</span>
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

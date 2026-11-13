@@ -2,13 +2,13 @@ import React from 'react';
 import { Download, ArrowRight, Phone, Mail, MessageSquare } from 'lucide-react';
 import { AGENCY_INFO } from '../data/agencyData';
 import { NavPage } from './Navbar';
+import { InstagramIcon, FacebookIcon } from './SocialIcons';
 
 interface FooterProps {
   onNavigate: (page: NavPage) => void;
-  onOpenBrochure: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBrochure }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const goTo = (page: NavPage) => {
     onNavigate(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -50,6 +50,29 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBrochure }) =>
                 <strong className="text-white">{AGENCY_INFO.founder}</strong>
               </div>
               <div>Studio &amp; Hub: {AGENCY_INFO.address}</div>
+            </div>
+
+            <div className="pt-2 flex items-center gap-3">
+              <a
+                href={AGENCY_INFO.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow The Social Tier on Instagram"
+                title="Instagram"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-[#FF7A00] text-zinc-200 hover:text-[#070709] border border-white/15 hover:border-[#FF7A00] transition-colors"
+              >
+                <InstagramIcon className="w-4 h-4" />
+              </a>
+              <a
+                href={AGENCY_INFO.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow The Social Tier on Facebook"
+                title="Facebook"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-[#FF7A00] text-zinc-200 hover:text-[#070709] border border-white/15 hover:border-[#FF7A00] transition-colors"
+              >
+                <FacebookIcon className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
@@ -104,14 +127,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBrochure }) =>
               Brochure &amp; Direct Line
             </h4>
             <div className="space-y-2.5">
-              <button
-                type="button"
-                onClick={onOpenBrochure}
-                className="btn-outline-header w-full justify-center"
+              <a
+                href={AGENCY_INFO.brochurePdfUrl}
+                download={AGENCY_INFO.brochureFileName}
+                className="btn-outline-header w-full justify-center no-underline"
               >
                 <Download className="w-3.5 h-3.5 text-[#FF7A00]" />
                 <span>Download Brochure</span>
-              </button>
+              </a>
 
               <button
                 type="button"

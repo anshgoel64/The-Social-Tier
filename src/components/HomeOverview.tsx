@@ -12,14 +12,12 @@ import {
 interface HomeOverviewProps {
   onNavigateToServices: () => void;
   onNavigateToVideos: () => void;
-  onOpenBrochure: () => void;
   onOpenContact: (serviceName?: string) => void;
 }
 
 export const HomeOverview: React.FC<HomeOverviewProps> = ({
   onNavigateToServices,
   onNavigateToVideos,
-  onOpenBrochure,
   onOpenContact,
 }) => {
   return (
@@ -28,7 +26,6 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({
       <Hero
         onNavigateToServices={onNavigateToServices}
         onNavigateToVideos={onNavigateToVideos}
-        onOpenBrochure={onOpenBrochure}
         onOpenContact={() => onOpenContact()}
       />
 

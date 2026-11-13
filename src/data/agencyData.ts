@@ -48,9 +48,13 @@ export const AGENCY_INFO = {
   tagline: 'Your Next Customer is Just One Strategy Away',
   mantra: 'Discover · Deploy · Design · Grow',
   phone: '+91-8287245528',
-  email: 'hello.thesocialtier@gmail.com',
+  email: 'hello@thesocialtier.in',
   address: 'C-44, Meerut Road Industrial Area, Ghaziabad-201003, Delhi-NCR, India',
   whatsappUrl: 'https://wa.me/918287245528?text=Hello%20The%20Social%20Tier,%20I%20would%20like%20to%20discuss%20a%20video%20production%20or%20marketing%20project',
+  instagramUrl: 'https://www.instagram.com/thesocialtier/',
+  facebookUrl: 'https://www.facebook.com/profile.php?id=61596560666210',
+  brochurePdfUrl: './assets/aistudio/Company_Profile_-_TheSocialTier_947f36a4.pdf',
+  brochureFileName: 'Company_Profile_-_TheSocialTier.pdf',
 };
 
 export const TRUST_PARTNERS = [
@@ -569,7 +573,7 @@ export const BROCHURE_PAGES: BrochurePage[] = [
     category: 'Contact',
     subtitle: 'Your next customer is just one strategy away.',
     image: './assets/aistudio/img16_d25beec3.jpg',
-    highlights: ['Call: +91-8287245528', 'Email: hello.thesocialtier@gmail.com', 'Ghaziabad, NCR Hub']
+    highlights: ['Call: +91-8287245528', 'Email: hello@thesocialtier.in', 'Ghaziabad, NCR Hub']
   }
 ];
 
@@ -634,7 +638,7 @@ export const FAQS = [
   },
   {
     q: 'How can I download or inspect your official company brochure?',
-    a: 'Click the "Download Brochure" button in the top navigation bar at any time to browse all 19 original pages in our interactive reader or print/download a high-resolution PDF copy.'
+    a: 'Click the "Download Brochure" button in the top navigation bar at any time to directly download our official Company Profile PDF.'
   }
 ];
 

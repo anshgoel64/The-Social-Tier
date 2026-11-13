@@ -5,13 +5,11 @@ import { AGENCY_INFO } from '../data/agencyData';
 interface HeroProps {
   onNavigateToServices: () => void;
   onNavigateToVideos: () => void;
-  onOpenBrochure: () => void;
   onOpenContact: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({
   onNavigateToVideos,
-  onOpenBrochure,
   onOpenContact,
 }) => {
   return (
@@ -63,14 +61,14 @@ export const Hero: React.FC<HeroProps> = ({
               <span>Video Portfolio</span>
             </button>
 
-            <button
-              type="button"
-              onClick={onOpenBrochure}
-              className="hero-cta-secondary"
+            <a
+              href={AGENCY_INFO.brochurePdfUrl}
+              download={AGENCY_INFO.brochureFileName}
+              className="hero-cta-secondary no-underline"
             >
               <Download className="w-4 h-4 text-[#FF7A00]" />
               <span>Download Brochure</span>
-            </button>
+            </a>
           </div>
         </div>
 

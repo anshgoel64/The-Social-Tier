@@ -1,17 +1,15 @@
 import React from 'react';
 import { ArrowRight, Download, PhoneCall } from 'lucide-react';
-import { SERVICES } from '../data/agencyData';
+import { SERVICES, AGENCY_INFO } from '../data/agencyData';
 
 interface ServicesPageProps {
   onNavigateToVideos: () => void;
   onSelectServiceForQuote: (serviceName: string) => void;
-  onOpenBrochure: () => void;
 }
 
 export const ServicesPage: React.FC<ServicesPageProps> = ({
   onNavigateToVideos,
   onSelectServiceForQuote,
-  onOpenBrochure,
 }) => {
   return (
     <div>
@@ -126,14 +124,14 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <span>Get Free Consultation</span>
             </button>
 
-            <button
-              type="button"
-              onClick={onOpenBrochure}
-              className="hero-cta-secondary"
+            <a
+              href={AGENCY_INFO.brochurePdfUrl}
+              download={AGENCY_INFO.brochureFileName}
+              className="hero-cta-secondary no-underline"
             >
               <Download className="w-4 h-4 text-[#FF7A00]" />
               <span>Download Brochure</span>
-            </button>
+            </a>
           </div>
         </div>
       </section>
