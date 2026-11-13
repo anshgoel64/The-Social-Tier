@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download, ArrowRight, Phone, Mail, MessageSquare } from 'lucide-react';
+import { Download, Phone, Mail, MessageSquare } from 'lucide-react';
 import { AGENCY_INFO } from '../data/agencyData';
 import { NavPage } from './Navbar';
 import { InstagramIcon, FacebookIcon } from './SocialIcons';
@@ -113,10 +113,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBrochure }) =>
               <li>
                 <button
                   type="button"
-                  onClick={() => goTo('contact')}
+                  onClick={onOpenBrochure}
                   className="text-zinc-400 hover:text-[#FF7A00] transition-colors cursor-pointer"
                 >
-                  Request A Consultation
+                  Company Brochure
                 </button>
               </li>
             </ul>
@@ -135,15 +135,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBrochure }) =>
               >
                 <Download className="w-3.5 h-3.5 text-[#FF7A00]" />
                 <span>Download Brochure</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => goTo('contact')}
-                className="btn-accent-pill w-full"
-              >
-                <span>Request a Quote</span>
-                <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
 

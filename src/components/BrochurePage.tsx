@@ -1,10 +1,6 @@
 import React from 'react';
-import { Download, ExternalLink, ArrowRight } from 'lucide-react';
+import { Download, ExternalLink } from 'lucide-react';
 import { AGENCY_INFO } from '../data/agencyData';
-
-interface BrochurePageProps {
-  onRequestQuote: () => void;
-}
 
 const PDF_PREVIEW_PAGES = Array.from({ length: 19 }, (_, idx) => {
   const num = String(idx + 1).padStart(2, '0');
@@ -15,7 +11,7 @@ const PDF_PREVIEW_PAGES = Array.from({ length: 19 }, (_, idx) => {
   };
 });
 
-export const BrochurePage: React.FC<BrochurePageProps> = ({ onRequestQuote }) => {
+export const BrochurePage: React.FC = () => {
   return (
     <div>
       {/* Dark Page Banner */}
@@ -91,21 +87,22 @@ export const BrochurePage: React.FC<BrochurePageProps> = ({ onRequestQuote }) =>
             <div className="flex flex-wrap items-center gap-3 shrink-0">
               <a
                 href={AGENCY_INFO.brochurePdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline-header no-underline"
+              >
+                <ExternalLink className="w-3.5 h-3.5 text-[#FF7A00]" />
+                <span>Open PDF</span>
+              </a>
+
+              <a
+                href={AGENCY_INFO.brochurePdfUrl}
                 download={AGENCY_INFO.brochureFileName}
                 className="btn-accent-pill no-underline"
               >
                 <Download className="w-4 h-4" />
                 <span>Download PDF</span>
               </a>
-
-              <button
-                type="button"
-                onClick={onRequestQuote}
-                className="btn-outline-header"
-              >
-                <span>Request a Quote</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#FF7A00]" />
-              </button>
             </div>
           </div>
         </main>

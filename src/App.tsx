@@ -9,14 +9,12 @@ import { HomeOverview } from './components/HomeOverview';
 import { ServicesPage } from './components/ServicesPage';
 import { VideoPortfolioPage } from './components/VideoPortfolioPage';
 import { BrochurePage } from './components/BrochurePage';
-import { ContactPage } from './components/ContactPage';
 import { Footer } from './components/Footer';
 import { MessageCircle } from 'lucide-react';
 import { AGENCY_INFO } from './data/agencyData';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<NavPage>('home');
-  const [selectedServiceForQuote, setSelectedServiceForQuote] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -27,8 +25,6 @@ export default function App() {
         setCurrentPage('videos');
       } else if (hash === '#brochure') {
         setCurrentPage('brochure');
-      } else if (hash === '#contact' || hash === '#consultation') {
-        setCurrentPage('contact');
       } else {
         setCurrentPage('home');
       }
@@ -45,11 +41,6 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSelectServiceForQuote = (serviceName?: string) => {
-    setSelectedServiceForQuote(serviceName);
-    handleNavigate('contact');
-  };
-
   return (
     <div className="min-h-screen bg-[#070709] text-zinc-100 flex flex-col">
       <Navbar
@@ -64,30 +55,19 @@ export default function App() {
             onNavigateToServices={() => handleNavigate('services')}
             onNavigateToVideos={() => handleNavigate('videos')}
             onOpenBrochure={() => handleNavigate('brochure')}
-            onOpenContact={handleSelectServiceForQuote}
           />
         )}
 
         {currentPage === 'services' && (
           <ServicesPage
             onNavigateToVideos={() => handleNavigate('videos')}
-            onSelectServiceForQuote={handleSelectServiceForQuote}
             onOpenBrochure={() => handleNavigate('brochure')}
           />
         )}
 
         {currentPage === 'videos' && <VideoPortfolioPage />}
 
-        {currentPage === 'brochure' && (
-          <BrochurePage onRequestQuote={() => handleSelectServiceForQuote('Company Brochure Inquiry')} />
-        )}
-
-        {currentPage === 'contact' && (
-          <ContactPage
-            initialService={selectedServiceForQuote}
-            onOpenBrochure={() => handleNavigate('brochure')}
-          />
-        )}
+        {currentPage === 'brochure' && <BrochurePage />}
       </main>
 
       <Footer

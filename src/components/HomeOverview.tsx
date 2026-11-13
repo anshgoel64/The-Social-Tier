@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, PhoneCall } from 'lucide-react';
+import { ArrowRight, Phone, MessageSquare } from 'lucide-react';
 import { Hero } from './Hero';
 import {
   SERVICES,
@@ -12,14 +12,12 @@ interface HomeOverviewProps {
   onNavigateToServices: () => void;
   onNavigateToVideos: () => void;
   onOpenBrochure: () => void;
-  onOpenContact: (serviceName?: string) => void;
 }
 
 export const HomeOverview: React.FC<HomeOverviewProps> = ({
   onNavigateToServices,
   onNavigateToVideos,
   onOpenBrochure,
-  onOpenContact,
 }) => {
   return (
     <div>
@@ -28,7 +26,6 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({
         onNavigateToServices={onNavigateToServices}
         onNavigateToVideos={onNavigateToVideos}
         onOpenBrochure={onOpenBrochure}
-        onOpenContact={() => onOpenContact()}
       />
 
       {/* Slanted Diagonal Cut transitioning Dark Hero -> Crisp Light Gray */}
@@ -78,10 +75,10 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({
                 <div className="service-card-footer">
                   <button
                     type="button"
-                    onClick={() => onOpenContact(service.name)}
+                    onClick={onNavigateToServices}
                     className="service-cta-btn"
                   >
-                    <span>Request Proposal</span>
+                    <span>Explore Service</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -146,14 +143,23 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({
             </div>
 
             <div className="flex flex-wrap items-center gap-4">
-              <button
-                type="button"
-                onClick={() => onOpenContact()}
-                className="hero-cta-primary"
+              <a
+                href={`tel:${AGENCY_INFO.phone}`}
+                className="hero-cta-primary no-underline"
               >
-                <PhoneCall className="w-4 h-4" />
-                <span>Book Free Consultation</span>
-              </button>
+                <Phone className="w-4 h-4" />
+                <span>Call {AGENCY_INFO.phone}</span>
+              </a>
+
+              <a
+                href={AGENCY_INFO.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-cta-secondary no-underline"
+              >
+                <MessageSquare className="w-4 h-4 text-[#FF7A00]" />
+                <span>WhatsApp Chat</span>
+              </a>
 
               <button
                 type="button"

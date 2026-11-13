@@ -3,7 +3,7 @@ import { Download, Menu, X, ArrowRight, Phone } from 'lucide-react';
 import { AGENCY_INFO } from '../data/agencyData';
 import { InstagramIcon } from './SocialIcons';
 
-export type NavPage = 'home' | 'services' | 'videos' | 'brochure' | 'contact';
+export type NavPage = 'home' | 'services' | 'videos' | 'brochure';
 
 interface NavbarProps {
   currentPage: NavPage;
@@ -22,7 +22,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'home', label: 'Home' },
     { id: 'services', label: 'Services' },
     { id: 'videos', label: 'Video Portfolio' },
-    { id: 'contact', label: 'Contact' },
   ];
 
   const handleNavClick = (page: NavPage) => {
@@ -68,7 +67,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           ))}
         </nav>
 
-        {/* Zone 3: Direct Phone + Instagram (always visible on mobile & desktop) + Desktop CTAs + Mobile Menu */}
+        {/* Zone 3: Direct Phone + Instagram (always visible on mobile & desktop) + Brochure + Mobile Menu */}
         <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
           <a
             href={`tel:${AGENCY_INFO.phone}`}
@@ -99,15 +98,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Download className="w-3.5 h-3.5 text-[#FF7A00]" />
               <span>Download Brochure</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleNavClick('contact')}
-              className="btn-accent-pill"
-            >
-              <span>Request a Quote</span>
-              <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
 
@@ -157,15 +147,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Download className="w-4 h-4 text-[#FF7A00]" />
               <span>Download Brochure</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleNavClick('contact')}
-              className="btn-accent-pill w-full"
-            >
-              <span>Request a Quote</span>
-              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>

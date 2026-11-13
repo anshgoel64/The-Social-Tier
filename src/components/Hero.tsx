@@ -6,13 +6,12 @@ interface HeroProps {
   onNavigateToServices: () => void;
   onNavigateToVideos: () => void;
   onOpenBrochure: () => void;
-  onOpenContact: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({
+  onNavigateToServices,
   onNavigateToVideos,
   onOpenBrochure,
-  onOpenContact,
 }) => {
   return (
     <section className="hero-section">
@@ -47,10 +46,10 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="hero-cta-row">
             <button
               type="button"
-              onClick={onOpenContact}
+              onClick={onNavigateToServices}
               className="hero-cta-primary"
             >
-              <span>Start Your Campaign</span>
+              <span>Explore Services</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 

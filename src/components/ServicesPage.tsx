@@ -1,17 +1,15 @@
 import React from 'react';
-import { ArrowRight, Download, PhoneCall } from 'lucide-react';
-import { SERVICES } from '../data/agencyData';
+import { Download, MessageSquare } from 'lucide-react';
+import { SERVICES, AGENCY_INFO } from '../data/agencyData';
 import { ServiceIcon } from './ServiceIcon';
 
 interface ServicesPageProps {
   onNavigateToVideos: () => void;
-  onSelectServiceForQuote: (serviceName: string) => void;
   onOpenBrochure: () => void;
 }
 
 export const ServicesPage: React.FC<ServicesPageProps> = ({
   onNavigateToVideos,
-  onSelectServiceForQuote,
   onOpenBrochure,
 }) => {
   return (
@@ -81,15 +79,6 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                       Retainer or Project Sprint
                     </span>
                   )}
-
-                  <button
-                    type="button"
-                    onClick={() => onSelectServiceForQuote(service.name)}
-                    className="service-cta-btn"
-                  >
-                    <span>Request Quote</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
                 </div>
               </article>
             ))}
@@ -113,14 +102,15 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           </div>
 
           <div className="flex flex-wrap items-center gap-4">
-            <button
-              type="button"
-              onClick={() => onSelectServiceForQuote('Custom Full-Funnel Package')}
-              className="hero-cta-primary"
+            <a
+              href={AGENCY_INFO.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-cta-primary no-underline"
             >
-              <PhoneCall className="w-4 h-4" />
-              <span>Get Free Consultation</span>
-            </button>
+              <MessageSquare className="w-4 h-4" />
+              <span>Chat on WhatsApp</span>
+            </a>
 
             <button
               type="button"
