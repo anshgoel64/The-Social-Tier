@@ -23,10 +23,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBrochure }) =>
             <div className="flex items-center gap-3">
               <span className="nav-logo-slot">
                 <img
-                  src="main-brand-logo.png"
+                  src="/main-brand-logo.png"
                   alt="Agency Logo"
                   className="nav-logo"
-                  onError={(e) => e.currentTarget.classList.add('is-placeholder-empty')}
+                  onError={(e) => {
+                    e.currentTarget.classList.add('is-placeholder-empty');
+                    e.currentTarget.parentElement?.classList.add('is-empty-logo');
+                  }}
                 />
               </span>
               <span className="brand-wordmark">THE SOCIAL TIER</span>

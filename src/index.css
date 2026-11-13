@@ -100,19 +100,24 @@ body {
   flex-shrink: 0;
 }
 
-/* Explicit Logo Placeholder Styling */
+/* Explicit Logo Styling */
 .nav-logo-slot {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 6px;
-  border: 1.5px dashed rgba(255, 122, 0, 0.55);
-  background: rgba(255, 255, 255, 0.04);
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
   overflow: hidden;
   flex-shrink: 0;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition: transform 0.2s ease;
+}
+
+.nav-logo-slot.is-empty-logo {
+  width: 44px;
+  height: 44px;
+  border: 1.5px dashed rgba(255, 122, 0, 0.55);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .nav-logo {
@@ -120,12 +125,11 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 3px;
+  transform: scale(1.2);
 }
 
 .brand-link:hover .nav-logo-slot {
-  border-color: var(--accent-orange);
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 .is-placeholder-empty {
@@ -799,9 +803,8 @@ body {
 .portfolio-video {
   display: block;
   width: 100%;
-  min-height: 240px;
+  height: auto;
   background-color: #0b0c10;
-  object-fit: cover;
   outline: none;
 }
 
