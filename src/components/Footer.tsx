@@ -6,9 +6,10 @@ import { InstagramIcon, FacebookIcon } from './SocialIcons';
 
 interface FooterProps {
   onNavigate: (page: NavPage) => void;
+  onOpenBrochure: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBrochure }) => {
   const goTo = (page: NavPage) => {
     onNavigate(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -127,14 +128,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Brochure &amp; Direct Line
             </h4>
             <div className="space-y-2.5">
-              <a
-                href={AGENCY_INFO.brochurePdfUrl}
-                download={AGENCY_INFO.brochureFileName}
-                className="btn-outline-header w-full justify-center no-underline"
+              <button
+                type="button"
+                onClick={onOpenBrochure}
+                className="btn-outline-header w-full justify-center"
               >
                 <Download className="w-3.5 h-3.5 text-[#FF7A00]" />
                 <span>Download Brochure</span>
-              </a>
+              </button>
 
               <button
                 type="button"

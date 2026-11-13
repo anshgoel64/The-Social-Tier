@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { Download, Menu, X, ArrowRight } from 'lucide-react';
-import { AGENCY_INFO } from '../data/agencyData';
 
-export type NavPage = 'home' | 'services' | 'videos' | 'contact';
+export type NavPage = 'home' | 'services' | 'videos' | 'brochure' | 'contact';
 
 interface NavbarProps {
   currentPage: NavPage;
   onNavigate: (page: NavPage) => void;
+  onOpenBrochure: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   currentPage,
   onNavigate,
+  onOpenBrochure,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -65,17 +66,17 @@ export const Navbar: React.FC<NavbarProps> = ({
           ))}
         </nav>
 
-        {/* Zone 3: Direct PDF Brochure Download + Bright Accent Pill CTA */}
+        {/* Zone 3: PDF Preview & Download + Bright Accent Pill CTA */}
         <div className="header-actions">
-          <a
-            href={AGENCY_INFO.brochurePdfUrl}
-            download={AGENCY_INFO.brochureFileName}
-            className="btn-outline-header no-underline"
-            title="Download Company Brochure PDF"
+          <button
+            type="button"
+            onClick={onOpenBrochure}
+            className="btn-outline-header"
+            title="Preview & Download Company Brochure PDF"
           >
             <Download className="w-3.5 h-3.5 text-[#FF7A00]" />
             <span>Download Brochure</span>
-          </a>
+          </button>
 
           <button
             type="button"
@@ -125,15 +126,17 @@ export const Navbar: React.FC<NavbarProps> = ({
           </nav>
 
           <div className="pt-3 border-t border-white/10 flex flex-col gap-2.5">
-            <a
-              href={AGENCY_INFO.brochurePdfUrl}
-              download={AGENCY_INFO.brochureFileName}
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold text-white border border-white/20 rounded-full cursor-pointer no-underline"
+            <button
+              type="button"
+              onClick={() => {
+                onOpenBrochure();
+                setMobileMenuOpen(false);
+              }}
+              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold text-white border border-white/20 rounded-full cursor-pointer"
             >
               <Download className="w-4 h-4 text-[#FF7A00]" />
               <span>Download Brochure</span>
-            </a>
+            </button>
 
             <button
               type="button"

@@ -1,15 +1,18 @@
 import React from 'react';
 import { ArrowRight, Download, PhoneCall } from 'lucide-react';
-import { SERVICES, AGENCY_INFO } from '../data/agencyData';
+import { SERVICES } from '../data/agencyData';
+import { ServiceIcon } from './ServiceIcon';
 
 interface ServicesPageProps {
   onNavigateToVideos: () => void;
   onSelectServiceForQuote: (serviceName: string) => void;
+  onOpenBrochure: () => void;
 }
 
 export const ServicesPage: React.FC<ServicesPageProps> = ({
   onNavigateToVideos,
   onSelectServiceForQuote,
+  onOpenBrochure,
 }) => {
   return (
     <div>
@@ -48,12 +51,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 <div>
                   <div className="service-card-top">
                     <div className="service-icon-box">
-                      <img
-                        src={service.iconFile}
-                        alt={service.iconAlt}
-                        className="service-icon"
-                        onError={(e) => e.currentTarget.classList.add('is-placeholder-empty')}
-                      />
+                      <ServiceIcon serviceId={service.id} />
                     </div>
                     <span className="service-index">{service.number}</span>
                   </div>
@@ -124,14 +122,14 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <span>Get Free Consultation</span>
             </button>
 
-            <a
-              href={AGENCY_INFO.brochurePdfUrl}
-              download={AGENCY_INFO.brochureFileName}
-              className="hero-cta-secondary no-underline"
+            <button
+              type="button"
+              onClick={onOpenBrochure}
+              className="hero-cta-secondary"
             >
               <Download className="w-4 h-4 text-[#FF7A00]" />
               <span>Download Brochure</span>
-            </a>
+            </button>
           </div>
         </div>
       </section>

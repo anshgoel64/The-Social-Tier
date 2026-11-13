@@ -638,7 +638,7 @@ export const FAQS = [
   },
   {
     q: 'How can I download or inspect your official company brochure?',
-    a: 'Click the "Download Brochure" button in the top navigation bar at any time to directly download our official Company Profile PDF.'
+    a: 'Click any "Download Brochure" button to preview the Company Profile PDF directly on the website and download your copy.'
   }
 ];
 

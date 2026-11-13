@@ -2,22 +2,23 @@ import React from 'react';
 import { ArrowRight, PhoneCall } from 'lucide-react';
 import { Hero } from './Hero';
 import {
-  TRUST_PARTNERS,
-  AGENCY_METRICS,
   SERVICES,
   AGENCY_PROCESS,
   AGENCY_INFO,
 } from '../data/agencyData';
+import { ServiceIcon } from './ServiceIcon';
 
 interface HomeOverviewProps {
   onNavigateToServices: () => void;
   onNavigateToVideos: () => void;
+  onOpenBrochure: () => void;
   onOpenContact: (serviceName?: string) => void;
 }
 
 export const HomeOverview: React.FC<HomeOverviewProps> = ({
   onNavigateToServices,
   onNavigateToVideos,
+  onOpenBrochure,
   onOpenContact,
 }) => {
   return (
@@ -26,49 +27,14 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({
       <Hero
         onNavigateToServices={onNavigateToServices}
         onNavigateToVideos={onNavigateToVideos}
+        onOpenBrochure={onOpenBrochure}
         onOpenContact={() => onOpenContact()}
       />
 
-      {/* Slanted Geometric Divider */}
-      <div className="slant-to-charcoal" aria-hidden="true" />
+      {/* Slanted Diagonal Cut transitioning Dark Hero -> Crisp Light Gray */}
+      <div className="slant-to-white bg-[#070709]" aria-hidden="true" />
 
-      {/* 2. High-Contrast Trust Banner (Partner Logos + Metric Counters) */}
-      <section className="trust-banner-section" aria-label="Trusted Partners and Metrics">
-        <div className="trust-inner">
-          <div className="trust-label">
-            Trusted By Ambitious Brands &amp; Growing Enterprises
-          </div>
-
-          {/* Partner Logo Placeholders */}
-          <div className="partner-logos-strip">
-            {TRUST_PARTNERS.map((partner, idx) => (
-              <div key={idx} className="partner-logo-slot">
-                <img
-                  src={partner.src}
-                  alt={partner.alt}
-                  className="partner-logo"
-                  onError={(e) => e.currentTarget.classList.add('is-placeholder-empty')}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Large Metric Counters Grid */}
-          <div className="metrics-grid">
-            {AGENCY_METRICS.map((metric, idx) => (
-              <div key={idx} className="metric-block">
-                <div className="metric-number font-mono-code">{metric.value}</div>
-                <div className="metric-caption">{metric.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Slanted Diagonal Cut transitioning Dark -> Crisp Light Gray */}
-      <div className="slant-to-white" aria-hidden="true" />
-
-      {/* 3. High-Contrast Light Capabilities Preview Block */}
+      {/* 2. High-Contrast Light Capabilities Preview Block */}
       <section className="services-section">
         <div className="services-container">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
@@ -99,12 +65,7 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({
                 <div>
                   <div className="service-card-top">
                     <div className="service-icon-box">
-                      <img
-                        src={service.iconFile}
-                        alt={service.iconAlt}
-                        className="service-icon"
-                        onError={(e) => e.currentTarget.classList.add('is-placeholder-empty')}
-                      />
+                      <ServiceIcon serviceId={service.id} />
                     </div>
                     <span className="service-index">{service.number}</span>
                   </div>
@@ -133,12 +94,11 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({
       {/* Slanted Diagonal Cut transitioning Light -> Pure Black */}
       <div className="slant-white-to-black" aria-hidden="true" />
 
-      {/* 4. Dark In-House Studio, Process & Founder Section */}
+      {/* 3. Dark In-House Studio & Process Section */}
       <section className="bg-[#070709] text-white py-20 px-6">
-        <div className="max-w-[1320px] mx-auto space-y-20">
-          {/* Studio & Leadership Split */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-6 space-y-6">
+        <div className="max-w-[1320px] mx-auto space-y-16">
+          <div className="space-y-8">
+            <div className="max-w-3xl space-y-4">
               <span className="hero-kicker">
                 {AGENCY_INFO.mantra}
               </span>
@@ -151,56 +111,25 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({
                 post-production suites. Founder {AGENCY_INFO.founder} and our senior
                 strategists oversee every creative concept and campaign launch directly.
               </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                {AGENCY_PROCESS.map((item) => (
-                  <div
-                    key={item.step}
-                    className="bg-[#111216] border border-white/10 rounded-xl p-5 hover:border-[#FF7A00] transition-colors"
-                  >
-                    <div className="font-display text-3xl text-[#FF7A00] leading-none mb-2">
-                      {item.step}
-                    </div>
-                    <h3 className="font-semibold text-white text-sm mb-1.5">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-zinc-400 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
             </div>
 
-            {/* Blank Image Placeholders for Studio & Founder */}
-            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div className="bg-[#111216] border border-white/10 rounded-2xl p-4 space-y-3">
-                <div className="placeholder-frame-slot">
-                  <img
-                    src="studio-production-floor.jpg"
-                    alt="In-House Production Studio Floor"
-                    className="placeholder-frame"
-                    onError={(e) => e.currentTarget.classList.add('is-placeholder-empty')}
-                  />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {AGENCY_PROCESS.map((item) => (
+                <div
+                  key={item.step}
+                  className="bg-[#111216] border border-white/10 rounded-xl p-5 hover:border-[#FF7A00] transition-colors"
+                >
+                  <div className="font-display text-3xl text-[#FF7A00] leading-none mb-2">
+                    {item.step}
+                  </div>
+                  <h3 className="font-semibold text-white text-sm mb-1.5">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-zinc-400 leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
-                <div className="text-xs font-semibold text-white">
-                  In-House Production Floor
-                </div>
-              </div>
-
-              <div className="bg-[#111216] border border-white/10 rounded-2xl p-4 space-y-3">
-                <div className="placeholder-frame-slot">
-                  <img
-                    src="team-member-ansh-goel.jpg"
-                    alt="Founder Ansh Goel"
-                    className="placeholder-frame"
-                    onError={(e) => e.currentTarget.classList.add('is-placeholder-empty')}
-                  />
-                </div>
-                <div className="text-xs font-semibold text-white">
-                  {AGENCY_INFO.founder} · Founder &amp; MD
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 

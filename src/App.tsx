@@ -8,6 +8,7 @@ import { Navbar, NavPage } from './components/Navbar';
 import { HomeOverview } from './components/HomeOverview';
 import { ServicesPage } from './components/ServicesPage';
 import { VideoPortfolioPage } from './components/VideoPortfolioPage';
+import { BrochurePage } from './components/BrochurePage';
 import { ContactPage } from './components/ContactPage';
 import { Footer } from './components/Footer';
 import { MessageCircle } from 'lucide-react';
@@ -24,6 +25,8 @@ export default function App() {
         setCurrentPage('services');
       } else if (hash === '#videos' || hash === '#video-production') {
         setCurrentPage('videos');
+      } else if (hash === '#brochure') {
+        setCurrentPage('brochure');
       } else if (hash === '#contact' || hash === '#consultation') {
         setCurrentPage('contact');
       } else {
@@ -52,6 +55,7 @@ export default function App() {
       <Navbar
         currentPage={currentPage}
         onNavigate={handleNavigate}
+        onOpenBrochure={() => handleNavigate('brochure')}
       />
 
       <main className="flex-1">
@@ -59,6 +63,7 @@ export default function App() {
           <HomeOverview
             onNavigateToServices={() => handleNavigate('services')}
             onNavigateToVideos={() => handleNavigate('videos')}
+            onOpenBrochure={() => handleNavigate('brochure')}
             onOpenContact={handleSelectServiceForQuote}
           />
         )}
@@ -67,20 +72,27 @@ export default function App() {
           <ServicesPage
             onNavigateToVideos={() => handleNavigate('videos')}
             onSelectServiceForQuote={handleSelectServiceForQuote}
+            onOpenBrochure={() => handleNavigate('brochure')}
           />
         )}
 
         {currentPage === 'videos' && <VideoPortfolioPage />}
 
+        {currentPage === 'brochure' && (
+          <BrochurePage onRequestQuote={() => handleSelectServiceForQuote('Company Brochure Inquiry')} />
+        )}
+
         {currentPage === 'contact' && (
           <ContactPage
             initialService={selectedServiceForQuote}
+            onOpenBrochure={() => handleNavigate('brochure')}
           />
         )}
       </main>
 
       <Footer
         onNavigate={handleNavigate}
+        onOpenBrochure={() => handleNavigate('brochure')}
       />
 
       {/* Floating WhatsApp Direct Chat */}

@@ -16,10 +16,12 @@ import { InstagramIcon, FacebookIcon } from './SocialIcons';
 
 interface ContactPageProps {
   initialService?: string;
+  onOpenBrochure: () => void;
 }
 
 export const ContactPage: React.FC<ContactPageProps> = ({
   initialService,
+  onOpenBrochure,
 }) => {
   const [formData, setFormData] = useState<LeadFormData>({
     fullName: '',
@@ -417,14 +419,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     </a>
                   </div>
 
-                  <a
-                    href={AGENCY_INFO.brochurePdfUrl}
-                    download={AGENCY_INFO.brochureFileName}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF7A00] hover:underline cursor-pointer no-underline"
+                  <button
+                    type="button"
+                    onClick={onOpenBrochure}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF7A00] hover:underline cursor-pointer"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>Download Brochure</span>
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
