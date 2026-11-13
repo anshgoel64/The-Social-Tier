@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Download, Menu, X, ArrowRight } from 'lucide-react';
+import { Download, Menu, X, ArrowRight, Phone } from 'lucide-react';
+import { AGENCY_INFO } from '../data/agencyData';
+import { InstagramIcon } from './SocialIcons';
 
 export type NavPage = 'home' | 'services' | 'videos' | 'brochure' | 'contact';
 
@@ -66,34 +68,53 @@ export const Navbar: React.FC<NavbarProps> = ({
           ))}
         </nav>
 
-        {/* Zone 3: PDF Preview & Download + Bright Accent Pill CTA */}
-        <div className="header-actions">
-          <button
-            type="button"
-            onClick={onOpenBrochure}
-            className="btn-outline-header"
-            title="Preview & Download Company Brochure PDF"
+        {/* Zone 3: Direct Phone + Instagram (always visible on mobile & desktop) + Desktop CTAs + Mobile Menu */}
+        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+          <a
+            href={`tel:${AGENCY_INFO.phone}`}
+            className="header-phone-link"
+            aria-label={`Call The Social Tier at ${AGENCY_INFO.phone}`}
           >
-            <Download className="w-3.5 h-3.5 text-[#FF7A00]" />
-            <span>Download Brochure</span>
-          </button>
+            <Phone className="w-3.5 h-3.5 text-[#FF7A00] shrink-0" />
+            <span>{AGENCY_INFO.phone}</span>
+          </a>
 
-          <button
-            type="button"
-            onClick={() => handleNavClick('contact')}
-            className="btn-accent-pill"
+          <a
+            href={AGENCY_INFO.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="header-insta-link"
+            aria-label="Follow The Social Tier on Instagram"
+            title="Instagram — @thesocialtier"
           >
-            <span>Request a Quote</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
+            <InstagramIcon className="w-4 h-4" />
+          </a>
 
-        {/* Mobile Menu Trigger */}
-        <div className="flex items-center gap-2 md:hidden">
+          <div className="header-actions">
+            <button
+              type="button"
+              onClick={onOpenBrochure}
+              className="btn-outline-header"
+              title="Preview & Download Company Brochure PDF"
+            >
+              <Download className="w-3.5 h-3.5 text-[#FF7A00]" />
+              <span>Download Brochure</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => handleNavClick('contact')}
+              className="btn-accent-pill"
+            >
+              <span>Request a Quote</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg border border-white/15 bg-white/5 text-white cursor-pointer"
+            className="lg:hidden p-2 rounded-lg border border-white/15 bg-white/5 text-white cursor-pointer shrink-0"
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -104,7 +125,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0E0F14] border-t border-white/10 px-5 pt-4 pb-6 space-y-4">
+        <div className="lg:hidden bg-[#0E0F14] border-t border-white/10 px-5 pt-4 pb-6 space-y-4">
           <nav className="flex flex-col gap-1" aria-label="Mobile Navigation">
             {navItems.map((item) => {
               const isActive = currentPage === item.id;
